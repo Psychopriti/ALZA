@@ -4,6 +4,7 @@
   "private": true,
   "description": "Frontend inicial de ALZA, plataforma educativa inclusiva.",
   "scripts": {
+    "build": "node scripts/build-static.js",
     "dev": "run-alza.cmd",
     "dev:portable": "node server.js"
   },
