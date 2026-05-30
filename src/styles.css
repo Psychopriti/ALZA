@@ -2749,3 +2749,477 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobile polish layer */
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    position: static;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    min-height: auto;
+    padding: 0.75rem;
+  }
+
+  .brand img {
+    width: 82px;
+  }
+
+  .nav-links {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0.28rem;
+    border-radius: 8px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links a {
+    flex: 0 0 auto;
+    min-height: 36px;
+    padding: 0 0.78rem;
+    font-size: 0.84rem;
+    scroll-snap-align: start;
+  }
+
+  .nav-actions {
+    justify-content: end;
+  }
+
+  .header-action,
+  .button,
+  .primary-button,
+  .ghost-button,
+  .danger-button {
+    min-height: 44px;
+    padding-inline: 1rem;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    padding: 2.1rem 0.85rem 3.2rem;
+  }
+
+  .hero-copy {
+    max-width: none;
+  }
+
+  h1 {
+    font-size: clamp(4.1rem, 22vw, 5.6rem);
+    line-height: 0.86;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 10vw, 2.65rem);
+    line-height: 1.02;
+  }
+
+  .hero-lede {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 1.25rem;
+  }
+
+  .learning-preview {
+    padding: 0.75rem;
+  }
+
+  .lesson-panel {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0.85rem;
+  }
+
+  .lesson-panel span {
+    justify-self: start;
+  }
+
+  .section {
+    padding: 3rem 0.85rem;
+  }
+
+  .section-heading,
+  .section-heading.split {
+    display: grid;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .mission-grid,
+  .audience-grid,
+  .impact-stats,
+  .course-grid,
+  .impact-path {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-grid article,
+  .audience-card {
+    min-height: auto;
+  }
+
+  .course-card,
+  .mobile-roadmap,
+  .impact-band,
+  .contact-section,
+  .auth-section,
+  .access-card,
+  .auth-drawer,
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-media,
+  .learn-card-media {
+    min-height: 170px;
+  }
+
+  .course-body,
+  .learn-card-body {
+    padding: 1rem;
+  }
+
+  .auth-home-logo {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .auth-home-logo img {
+    width: 86px;
+  }
+
+  .auth-shell,
+  .access-shell {
+    padding: 5.2rem 0.85rem 2rem;
+  }
+
+  .portal-heading h1,
+  .access-visual h1,
+  .plan-heading h1 {
+    font-size: clamp(2.45rem, 15vw, 3.8rem);
+    line-height: 0.92;
+  }
+
+  .portal-heading img {
+    width: 104px;
+  }
+
+  .portal-card {
+    min-height: 230px;
+    padding: 1rem;
+  }
+
+  .portal-art {
+    width: 58px;
+    height: 58px;
+  }
+
+  .access-visual {
+    min-height: 260px;
+  }
+
+  .auth-card,
+  .builder-panel,
+  .company-seat-panel,
+  .player-main,
+  .active-lesson,
+  .lesson-list {
+    padding: 0.9rem;
+  }
+
+  .auth-switch {
+    align-items: center;
+    text-align: center;
+  }
+
+  .plan-page {
+    align-items: start;
+    padding: 1rem 0.85rem;
+  }
+
+  .plan-grid,
+  .plan-grid.single-plan,
+  .focused-plans,
+  .subscription-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-page {
+    display: block;
+    min-height: 100vh;
+  }
+
+  .app-sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 25;
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.45rem;
+    overflow-x: auto;
+    padding: 0.65rem 0.75rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(34, 32, 29, 0.08);
+    background: rgba(255, 250, 240, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .app-sidebar img {
+    flex: 0 0 auto;
+    width: 72px;
+    margin: 0 0.25rem 0 0;
+  }
+
+  .app-sidebar a {
+    flex: 0 0 auto;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.8rem;
+    white-space: nowrap;
+  }
+
+  .app-main {
+    width: 100%;
+    padding: 1rem 0.75rem 1.5rem;
+  }
+
+  .app-topbar,
+  .dashboard-header,
+  .admin-editor-head,
+  .builder-panel-head,
+  .exam-builder-head,
+  .exam-question-actions,
+  .question-type-row,
+  .company-seat-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .app-topbar h1 {
+    font-size: clamp(2.25rem, 14vw, 3.4rem);
+    line-height: 0.94;
+  }
+
+  .app-topbar .header-action,
+  .admin-course-actions,
+  .modal-actions {
+    justify-self: stretch;
+    justify-content: stretch;
+  }
+
+  .app-topbar .header-action,
+  .admin-course-actions > *,
+  .modal-actions > * {
+    width: 100%;
+  }
+
+  .learner-hero,
+  .admin-stats,
+  .learn-grid,
+  .admin-course-list,
+  .company-seat-layout,
+  .course-player,
+  .course-basics,
+  .lesson-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .streak-card,
+  .xp-card,
+  .profile-card,
+  .admin-stats article,
+  .admin-stat-card,
+  .plan-card {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .streak-card strong,
+  .xp-card strong,
+  .profile-card strong,
+  .admin-stats strong {
+    font-size: 2rem;
+  }
+
+  .admin-stat-card strong {
+    font-size: clamp(2.2rem, 16vw, 3.2rem);
+  }
+
+  .learn-card {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-card-media img {
+    min-height: 180px;
+  }
+
+  .admin-course-row,
+  .attachment-editor-row,
+  .lesson-downloads a {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .admin-course-row button,
+  .attachment-editor-row button {
+    width: 100%;
+  }
+
+  .audience-options,
+  .content-switch,
+  .rich-toolbar {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .audience-picker > label,
+  .audience-options label,
+  .content-switch label {
+    width: 100%;
+  }
+
+  .builder-actions,
+  .block-order-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-block-row > button {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .large-video,
+  .lesson-video,
+  .youtube-frame,
+  .lesson-media-image {
+    aspect-ratio: 16 / 9;
+    max-height: none;
+  }
+
+  .course-modules {
+    order: -1;
+  }
+
+  .lesson-list {
+    max-height: 42vh;
+    overflow: auto;
+  }
+
+  .lesson-content h2,
+  .exam-player h2,
+  .admin-editor h2 {
+    font-size: clamp(1.55rem, 9vw, 2.25rem);
+  }
+
+  .exam-choice-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: 0.55rem;
+  }
+
+  .rich-editor {
+    min-height: 150px;
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 430px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .header-action,
+  .button {
+    width: auto;
+  }
+
+  .nav-actions {
+    width: auto;
+  }
+
+  .nav-actions .header-action {
+    min-height: 40px;
+    padding-inline: 0.85rem;
+    font-size: 0.86rem;
+  }
+
+  .brand,
+  .nav-actions {
+    justify-self: auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.7rem, 24vw, 4.8rem);
+  }
+
+  .learning-preview {
+    box-shadow: 0 10px 28px rgba(91, 66, 35, 0.11);
+  }
+
+  .lesson-panel h2 {
+    font-size: 1.45rem;
+  }
+
+  .section,
+  .app-main,
+  .auth-shell,
+  .access-shell {
+    padding-inline: 0.7rem;
+  }
+
+  .app-sidebar {
+    padding-inline: 0.65rem;
+  }
+
+  .app-sidebar img {
+    width: 64px;
+  }
+
+  .app-sidebar a {
+    min-height: 38px;
+    padding-inline: 0.72rem;
+    font-size: 0.88rem;
+  }
+
+  .app-topbar h1 {
+    font-size: clamp(2rem, 15vw, 2.95rem);
+  }
+
+  .player-main,
+  .admin-editor,
+  .lesson-builder,
+  .company-seat-panel {
+    border-radius: 8px;
+  }
+
+  .course-basics,
+  .builder-panel,
+  .exam-question-card {
+    gap: 0.8rem;
+  }
+}
