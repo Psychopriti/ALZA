@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ALZA, plataforma educativa inclusiva para personas sordas, personas oyentes y empresas."
+    />
+    <title>ALZA | Plataforma educativa inclusiva</title>
+    <link rel="icon" href="./public/favicon.ico" sizes="any" />
+    <link rel="icon" href="./public/assets/alza-mark.png" type="image/png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <img src="./public/assets/alza-logo-full.png" alt="ALZA" />
+      </a>
+
+      <nav class="nav-links" aria-label="Secciones">
+        <a href="#cursos">Cursos</a>
+        <a href="#mision">Misión</a>
+        <a href="#plataforma">Plataforma</a>
+        <a href="#mobile">Mobile</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="header-action" href="./auth.html">Iniciar sesión</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">Educación visual, accesible y práctica</p>
+          <h1>ALZA</h1>
+          <p class="hero-lede">
+            Plataforma educativa inclusiva para aprender con videos, texto claro,
+            recursos visuales y cursos pensados para personas con discapacidad
+            auditiva, personas oyentes y empresas.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="./auth.html">Iniciar sesión</a>
+            <a class="button secondary" href="#cursos">Explorar cursos</a>
+          </div>
+        </div>
+
+        <div class="learning-preview" aria-label="Vista previa de plataforma">
+          <div class="video-panel animated-mark" aria-label="Animacion del logo ALZA">
+            <span class="motion-ring"></span>
+            <span class="motion-ring delay"></span>
+            <img src="./public/assets/alza-mark.png" alt="" />
+            <div class="video-pulse">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="lesson-panel">
+            <div>
+              <p>Clase destacada</p>
+              <h2>Lengua de Señas Nicaragüense</h2>
+            </div>
+            <span>Visual</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-band" id="mision">
+        <div class="section-heading">
+          <p class="eyebrow">Propósito ALZA</p>
+          <h2>Aprendizaje que abre puertas</h2>
+        </div>
+        <div class="mission-grid">
+          <article>
+            <span class="article-number">01</span>
+            <h3>Misión</h3>
+            <p>
+              Brindar educación accesible e inclusiva mediante una plataforma
+              digital que desarrolla habilidades prácticas y promueve el
+              aprendizaje de la lengua de señas en Nicaragua.
+            </p>
+          </article>
+          <article>
+            <span class="article-number">02</span>
+            <h3>Visión</h3>
+            <p>
+              Ser una plataforma líder en educación inclusiva, reconocida por
+              facilitar herramientas para una sociedad con menos barreras de
+              comunicación y mayores oportunidades.
+            </p>
+          </article>
+          <article>
+            <span class="article-number">03</span>
+            <h3>Enfoque</h3>
+            <p>
+              Cursos con video, texto, apoyo visual, progreso claro y rutas de
+              aprendizaje adaptadas para estudiantes, personas oyentes y equipos
+              de empresas.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="cursos">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Catálogo inicial</p>
+            <h2>Cursos para empezar</h2>
+          </div>
+          <a class="button secondary compact" href="#plataforma">Ver demo</a>
+        </div>
+
+        <div class="course-grid">
+          <article class="course-card excel">
+            <div class="course-media">
+              <span>XL</span>
+            </div>
+            <div class="course-body">
+              <p class="course-type">Productividad</p>
+              <h3>Excel desde cero</h3>
+              <p>
+                Aprende hojas de cálculo, fórmulas, tablas y organización de
+                datos con explicaciones visuales y material de apoyo.
+              </p>
+              <div class="course-meta">
+                <span>Video</span>
+                <span>Texto guía</span>
+                <span>Ejercicios</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card signs">
+            <div class="course-media">
+              <img src="./public/assets/alza-mark.png" alt="" />
+            </div>
+            <div class="course-body">
+              <p class="course-type">Comunicación inclusiva</p>
+              <h3>Lengua de Señas Nicaragüense</h3>
+              <p>
+                Curso introductorio para fortalecer la comunicación entre
+                personas sordas, familias, docentes, empresas y comunidad.
+              </p>
+              <div class="course-meta">
+                <span>Video</span>
+                <span>Práctica visual</span>
+                <span>Glosario</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section platform-section" id="plataforma">
+        <aside class="dashboard-sidebar">
+          <img src="./public/assets/alza-logo-full.png" alt="ALZA" />
+          <a class="active" href="#plataforma">Inicio</a>
+          <a href="#cursos">Cursos</a>
+          <a href="#mision">Recursos</a>
+          <a href="#impacto">Comunidad</a>
+        </aside>
+
+        <div class="dashboard-main">
+          <div class="dashboard-header">
+            <div>
+              <p class="eyebrow">Demo de plataforma</p>
+              <h2>Continúa aprendiendo</h2>
+            </div>
+            <button class="icon-button" aria-label="Notificaciones">1</button>
+          </div>
+
+          <div class="lesson-layout">
+            <article class="active-lesson">
+              <div class="video-frame">
+                <img src="./public/assets/alza-mark.png" alt="" />
+                <button aria-label="Reproducir clase">Play</button>
+              </div>
+              <h3>Saludos básicos en lengua de señas</h3>
+              <p>
+                Video principal con espacio para transcripción, resumen de la
+                clase y recursos descargables.
+              </p>
+            </article>
+
+            <aside class="lesson-list" aria-label="Lista de clases">
+              <h3>Lecciones</h3>
+              <button>
+                <span>01</span>
+                Introducción al curso
+              </button>
+              <button class="selected">
+                <span>02</span>
+                Saludos básicos
+              </button>
+              <button>
+                <span>03</span>
+                Práctica guiada
+              </button>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section mobile-roadmap" id="mobile">
+        <div class="mobile-copy">
+          <p class="eyebrow">Proximo paso</p>
+          <h2>ALZA Mobile</h2>
+          <p>
+            Estamos preparando el camino para una experiencia movil pensada para
+            aprender desde el telefono: mas ligera, visual y facil de usar en
+            cualquier lugar.
+          </p>
+          <div class="course-meta">
+            <span>Contenido ligero</span>
+            <span>Videos accesibles</span>
+            <span>Progreso siempre a mano</span>
+          </div>
+        </div>
+
+        <div class="mobile-preview" aria-label="Vista futura de ALZA Mobile">
+          <div class="mobile-device">
+            <div class="mobile-status"></div>
+            <img src="./public/assets/alza-mark.png" alt="" />
+            <strong>ALZA Mobile</strong>
+            <span>En desarrollo</span>
+            <div class="mobile-bars">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section impact-band" id="impacto">
+        <div class="impact-copy">
+          <p class="eyebrow">Impacto esperado</p>
+          <h2>Menos barreras. Mas autonomia.</h2>
+          <p>
+            ALZA conecta aprendizaje accesible, Lengua de Senas Nicaraguense y
+            habilidades practicas para que la inclusion se traduzca en mejores
+            oportunidades reales.
+          </p>
+        </div>
+        <div class="impact-path">
+          <article>
+            <span>01</span>
+            <div>
+              <strong>Aprender sin barreras</strong>
+              <small>Contenido visual, texto claro y avance guiado.</small>
+            </div>
+          </article>
+          <article>
+            <span>02</span>
+            <div>
+              <strong>Comunicarse mejor</strong>
+              <small>LSN para estudiantes, familias, profesionales y empresas.</small>
+            </div>
+          </article>
+          <article>
+            <span>03</span>
+            <div>
+              <strong>Prepararse para trabajar</strong>
+              <small>Herramientas practicas para autonomia y empleabilidad.</small>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contacto">
+        <div class="contact-copy">
+          <p class="eyebrow">Contactanos</p>
+          <h2>Seguinos y hablemos de aprendizaje inclusivo</h2>
+          <p>
+            Para novedades, consultas y comunidad, encontranos en Instagram como
+            <strong>@alza_nic</strong>.
+          </p>
+        </div>
+        <a
+          class="instagram-card"
+          href="https://www.instagram.com/alza_nic/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Abrir Instagram de ALZA"
+        >
+          <span>Instagram</span>
+          <strong>@alza_nic</strong>
+          <small>Enviar mensaje</small>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="./public/assets/alza-mark.png" alt="" />
+      <span>ALZA · Educación que te impulsa más alto</span>
+      <a href="https://www.instagram.com/alza_nic/" target="_blank" rel="noreferrer">@alza_nic</a>
+    </footer>
+  </body>
+</html>

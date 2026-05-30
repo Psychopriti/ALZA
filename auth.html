@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elegir portal | ALZA</title>
+    <link rel="icon" href="./public/favicon.ico" sizes="any" />
+    <link rel="icon" href="./public/assets/alza-mark.png" type="image/png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="auth-page">
+    <a class="auth-home-logo" href="./index.html" aria-label="Volver al inicio">
+      <img src="./public/assets/alza-logo-full.png" alt="ALZA" />
+    </a>
+
+    <main class="auth-shell">
+      <section class="portal-login" aria-labelledby="auth-title">
+        <div class="portal-heading">
+          <img src="./public/assets/alza-logo-full.png" alt="ALZA" />
+          <p class="eyebrow">Acceso a la plataforma</p>
+          <h1 id="auth-title">Elegí tu portal</h1>
+          <p>
+            Seleccioná el tipo de usuario con el que vas a entrar. En la
+            siguiente pantalla te pediremos tu correo y contraseña.
+          </p>
+        </div>
+
+        <div class="portal-grid" aria-label="Tipo de usuario">
+          <a class="portal-card company" href="./login.html?role=empresa">
+            <span class="portal-art">EMP</span>
+            <span class="portal-kicker">Portal</span>
+            <strong>Empresas</strong>
+            <small>Capacitación inclusiva para equipos y organizaciones.</small>
+          </a>
+
+          <a
+            class="portal-card featured"
+            href="./login.html?role=persona_discapacidad_auditiva"
+          >
+            <span class="portal-art">LSN</span>
+            <span class="portal-kicker">Portal</span>
+            <strong>Personas con discapacidad auditiva</strong>
+            <small>Cursos visuales, textos claros y rutas accesibles.</small>
+          </a>
+
+          <a class="portal-card listener" href="./login.html?role=persona_oyente">
+            <span class="portal-art">COM</span>
+            <span class="portal-kicker">Portal</span>
+            <strong>Personas oyentes</strong>
+            <small>Aprendé lengua de señas y comunicación inclusiva.</small>
+          </a>
+        </div>
+
+        <div class="auth-switch">
+          <span>¿No tenés cuenta?</span>
+          <a href="./register.html">Creá una cuenta</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

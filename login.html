@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión | ALZA</title>
+    <link rel="icon" href="./public/favicon.ico" sizes="any" />
+    <link rel="icon" href="./public/assets/alza-mark.png" type="image/png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="auth-page" data-auth-page="login">
+    <main class="access-shell">
+      <section class="access-card" aria-labelledby="login-title">
+        <div class="access-visual">
+          <img src="./public/assets/alza-mark.png" alt="" />
+          <p class="eyebrow">Iniciar sesión</p>
+          <h1 id="login-title">Entrá a ALZA</h1>
+          <p>
+            Continuá tu aprendizaje con videos, textos guía y recursos visuales
+            adaptados a tu perfil.
+          </p>
+          <div class="selected-role">
+            Portal: <strong data-selected-role-label>Personas con discapacidad auditiva</strong>
+          </div>
+        </div>
+
+        <form class="auth-card access-form" data-auth-form>
+          <input type="hidden" name="mode" value="login" />
+          <input type="hidden" name="role" data-role-input />
+
+          <label>
+            Correo electrónico
+            <input
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="correo@ejemplo.com"
+              required
+            />
+          </label>
+
+          <label>
+            Contraseña
+            <input
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Tu contraseña"
+              required
+              minlength="6"
+            />
+          </label>
+
+          <button class="button primary" type="submit">Iniciar sesión</button>
+          <p class="drawer-register-link">
+            ¿No tenés cuenta?
+            <a data-register-link href="./register.html">Creá una cuenta</a>
+          </p>
+          <a class="text-button centered-link" href="./auth.html">Elegir otro portal</a>
+          <p class="auth-status" data-auth-status></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="./src/config.js"></script>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

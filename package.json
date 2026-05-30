@@ -1,0 +1,22 @@
+{
+  "name": "alza-education-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Frontend inicial de ALZA, plataforma educativa inclusiva.",
+  "scripts": {
+    "dev": "run-alza.cmd",
+    "dev:portable": "node server.js"
+  },
+  "keywords": [
+    "alza",
+    "educacion",
+    "accesibilidad",
+    "supabase"
+  ],
+  "author": "ALZA",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.106.2"
+  }
+}

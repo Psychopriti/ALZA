@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso | ALZA</title>
+    <link rel="icon" href="./public/favicon.ico" sizes="any" />
+    <link rel="icon" href="./public/assets/alza-mark.png" type="image/png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="app-page">
+    <aside class="app-sidebar">
+      <img src="./public/assets/alza-logo-full.png" alt="ALZA" />
+      <a href="./platform.html">Dashboard</a>
+      <a class="active" href="./course.html">Clase</a>
+      <a href="./index.html" data-sign-out>Salir</a>
+    </aside>
+
+    <main class="app-main">
+      <header class="app-topbar">
+        <div>
+          <p class="eyebrow">Clase actual</p>
+          <h1 data-course-title>Curso</h1>
+        </div>
+        <a class="header-action" href="./platform.html">Volver</a>
+      </header>
+
+      <section class="course-player">
+        <article class="player-main">
+          <div class="video-frame large-video" data-video-placeholder>
+            <img src="./public/assets/alza-mark.png" alt="" />
+            <button type="button">Play</button>
+          </div>
+          <video class="lesson-video" data-lesson-video controls hidden></video>
+          <div class="youtube-player" data-youtube-player hidden></div>
+          <div class="lesson-content" data-lesson-content>
+            <p class="eyebrow">Contenido</p>
+            <h2 data-course-title>Curso</h2>
+            <p data-course-summary></p>
+          </div>
+          <div class="exam-player" data-exam-player hidden></div>
+          <div class="progress-track"><span data-course-progress></span></div>
+          <button class="button primary compact" type="button" data-complete-lesson>Marcar como completado</button>
+        </article>
+
+        <aside class="lesson-list course-modules" data-course-modules></aside>
+      </section>
+    </main>
+
+    <script src="./src/config.js"></script>
+    <script type="module" src="./src/course.js"></script>
+    <script type="module" src="./src/session.js"></script>
+  </body>
+</html>

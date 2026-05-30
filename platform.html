@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma | ALZA</title>
+    <link rel="icon" href="./public/favicon.ico" sizes="any" />
+    <link rel="icon" href="./public/assets/alza-mark.png" type="image/png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="app-page">
+    <aside class="app-sidebar">
+      <img src="./public/assets/alza-logo-full.png" alt="ALZA" />
+      <a class="active" href="./platform.html" data-dashboard-link>Dashboard</a>
+      <a href="./platform.html?view=cuentas" data-company-accounts-link hidden>Cuentas</a>
+      <a href="./plan.html" data-plan-link>Gestionar plan</a>
+      <a href="./index.html" data-sign-out>Salir</a>
+    </aside>
+
+    <main class="app-main">
+      <header class="app-topbar">
+        <div>
+          <p class="eyebrow">Hola, <span data-user-name>usuario</span></p>
+          <h1>Tu camino de aprendizaje</h1>
+        </div>
+        <a class="header-action" href="./index.html" data-sign-out>Salir</a>
+      </header>
+
+      <div data-dashboard-view>
+        <section class="learner-hero">
+          <article class="streak-card">
+            <span>Racha</span>
+            <strong data-user-streak>0 dias</strong>
+            <p data-user-streak-copy>Completa una leccion hoy para mantener tu impulso.</p>
+          </article>
+          <article class="xp-card">
+            <span>Progreso total</span>
+            <strong data-user-total-progress>0%</strong>
+            <div class="progress-track"><span data-user-total-progress-bar style="width: 0%"></span></div>
+          </article>
+          <article class="profile-card">
+            <span>Perfil</span>
+            <strong data-role-label>usuario</strong>
+            <p data-user-plan-status>Ruta adaptada a tu tipo de cuenta.</p>
+          </article>
+        </section>
+
+        <section class="app-section" id="courses">
+          <div class="section-heading split">
+            <div>
+              <p class="eyebrow">Cursos activos</p>
+              <h2>Continua donde quedaste</h2>
+            </div>
+          </div>
+          <div class="learn-grid" data-course-grid></div>
+        </section>
+      </div>
+
+      <section class="company-seat-panel" data-company-seat-panel hidden>
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Empresa</p>
+            <h2>Cuentas bajo tu institucion</h2>
+          </div>
+          <span data-company-seat-count>0 / 10 cuentas</span>
+        </div>
+
+        <div class="company-seat-layout">
+          <form class="auth-card company-seat-form" data-company-seat-form>
+            <label>
+              Nombre del usuario
+              <input name="seat_name" type="text" placeholder="Nombre del colaborador" required />
+            </label>
+            <label>
+              Correo electronico
+              <input name="seat_email" type="email" placeholder="correo@empresa.com" required />
+            </label>
+            <label>
+              Contrasena
+              <input name="seat_password" type="password" placeholder="Minimo 6 caracteres" minlength="6" required />
+            </label>
+            <button class="button primary" type="submit">Crear cuenta</button>
+            <p class="auth-status" data-company-seat-status></p>
+          </form>
+
+          <div class="company-seat-list" data-company-seat-list></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./src/config.js"></script>
+    <script type="module" src="./src/platform.js"></script>
+    <script type="module" src="./src/session.js"></script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | ALZA</title>
+    <link rel="icon" href="./public/favicon.ico" sizes="any" />
+    <link rel="icon" href="./public/assets/alza-mark.png" type="image/png" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body class="app-page admin-page">
+    <aside class="app-sidebar">
+      <img src="./public/assets/alza-logo-full.png" alt="ALZA" />
+      <a class="active" href="#dashboard" data-admin-nav="dashboard">Dashboard</a>
+      <a href="#cursos" data-admin-nav="courses">Cursos</a>
+      <a href="./index.html" data-sign-out>Salir</a>
+    </aside>
+
+    <main class="app-main">
+      <header class="app-topbar">
+        <div>
+          <p class="eyebrow">Super user</p>
+          <h1>Panel administrativo</h1>
+        </div>
+      </header>
+
+      <section class="admin-view admin-dashboard" id="dashboard" data-admin-view="dashboard">
+        <div class="section-heading">
+          <p class="eyebrow">Dashboard</p>
+          <h2>Resumen general</h2>
+        </div>
+        <div class="admin-stats" data-admin-stats></div>
+      </section>
+
+      <section class="admin-view admin-layout" id="cursos" data-admin-view="courses" hidden>
+        <div class="admin-courses-panel">
+          <div class="section-heading split">
+            <div>
+              <p class="eyebrow">Cursos</p>
+              <h2>Gestionar contenido</h2>
+            </div>
+            <button class="button primary compact" type="button" data-new-course>Nuevo curso</button>
+          </div>
+          <div class="admin-course-list" data-admin-courses></div>
+        </div>
+
+        <form class="auth-card admin-editor" id="editor" data-course-editor hidden>
+          <div class="admin-editor-head">
+            <div>
+              <p class="eyebrow">Constructor</p>
+              <h2 data-editor-title>Curso nuevo</h2>
+            </div>
+            <button class="ghost-button" type="button" data-close-editor>Cerrar</button>
+          </div>
+
+          <div class="course-basics">
+            <label>
+              Titulo
+              <input name="title" type="text" placeholder="Nombre del curso" required />
+            </label>
+            <label>
+              Categoria
+              <input name="category" type="text" placeholder="Productividad, Comunicacion..." />
+            </label>
+            <label>
+              Foto del curso
+              <input name="cover_file" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/*" />
+              <small class="field-help" data-cover-help>Recomendado: 1200x800 JPG, PNG o WebP.</small>
+            </label>
+            <label>
+              Resumen
+              <textarea name="summary" rows="3" placeholder="Descripcion corta del curso" required></textarea>
+            </label>
+            <label class="check-row">
+              <input name="published" type="checkbox" checked />
+              Publicado
+            </label>
+            <fieldset class="audience-picker">
+              <legend>Disponible para</legend>
+              <label>
+                <input name="audience_all" type="checkbox" checked />
+                Todos los portales
+              </label>
+              <div class="audience-options">
+                <label>
+                  <input name="audience_role" type="checkbox" value="persona_oyente" checked />
+                  Personas oyentes
+                </label>
+                <label>
+                  <input name="audience_role" type="checkbox" value="persona_discapacidad_auditiva" checked />
+                  Personas no oyentes
+                </label>
+                <label>
+                  <input name="audience_role" type="checkbox" value="empresa" checked />
+                  Empresas
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="lesson-builder">
+            <aside class="builder-rail">
+              <div class="builder-actions">
+                <button type="button" data-add-lesson>+ Leccion</button>
+                <button type="button" data-add-exam>+ Examen</button>
+              </div>
+              <div class="builder-blocks" data-builder-blocks></div>
+            </aside>
+
+            <section class="builder-panel" data-builder-panel>
+              <p class="empty-builder">Agrega una leccion o examen para empezar.</p>
+            </section>
+          </div>
+
+          <button class="button primary" type="submit" data-course-submit>Crear curso</button>
+          <p class="auth-status" data-admin-status></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="./src/config.js"></script>
+    <script type="module" src="./src/admin.js"></script>
+    <script type="module" src="./src/session.js"></script>
+  </body>
+</html>
