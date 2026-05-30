@@ -8,6 +8,9 @@ const modal = document.querySelector("[data-checkout-modal]");
 const summary = document.querySelector("[data-checkout-summary]");
 const confirmButton = document.querySelector("[data-confirm-checkout]");
 const cancelButton = document.querySelector("[data-cancel-checkout]");
+const checkoutForm = document.querySelector("[data-checkout-form]");
+const cardNameInput = document.querySelector("[data-card-name]");
+const cardNumberInput = document.querySelector("[data-card-number]");
 const params = new URLSearchParams(window.location.search);
 const requestedRole = params.get("role") || window.localStorage.getItem("alza:selected-role") || "persona_oyente";
 
@@ -15,6 +18,7 @@ let selectedPlan = null;
 let activeRole = requestedRole;
 let activeUserId = null;
 let activeSupabase = null;
+let activeUserName = "";
 
 const money = (value) => `C$${Number(value).toFixed(Number(value) % 1 === 0 ? 0 : 2)}`;
 
@@ -49,10 +53,20 @@ const showToast = (message) => {
   toast.hidden = false;
 };
 
+const formatCardNumber = (value) =>
+  value
+    .replace(/\D/g, "")
+    .slice(0, 16)
+    .replace(/(\d{4})(?=\d)/g, "$1 ")
+    .trim();
+
 const openCheckoutModal = (plan) => {
   selectedPlan = plan;
   if (summary) {
     summary.textContent = `Vas a activar ${plan.name} por ${money(plan.price_usd)} ${cadenceText(plan)}.`;
+  }
+  if (cardNameInput && !cardNameInput.value.trim()) {
+    cardNameInput.value = activeUserName || "Nombre del usuario";
   }
   if (modal) modal.hidden = false;
 };
@@ -94,6 +108,8 @@ const activateSelectedPlan = async () => {
     return;
   }
 
+  if (checkoutForm && !checkoutForm.reportValidity()) return;
+
   confirmButton.disabled = true;
   confirmButton.textContent = "Activando...";
 
@@ -123,7 +139,18 @@ const init = async () => {
   activeSupabase = supabase;
   activeUserId = user?.id || null;
   activeRole = profile?.role || requestedRole;
+  activeUserName = profile?.full_name || user?.user_metadata?.full_name || user?.email?.split("@")[0] || "";
   window.localStorage.setItem("alza:selected-role", activeRole);
+
+  if (cardNameInput) {
+    cardNameInput.value = activeUserName || "";
+    cardNameInput.placeholder = "Nombre del usuario";
+    cardNameInput.required = true;
+  }
+  if (cardNumberInput) {
+    cardNumberInput.placeholder = "1234 5678 9101 1234";
+    cardNumberInput.required = true;
+  }
 
   if (activeRole === "persona_discapacidad_auditiva") {
     window.location.href = `./platform.html?role=${activeRole}`;
@@ -167,6 +194,13 @@ const init = async () => {
 
 cancelButton?.addEventListener("click", closeCheckoutModal);
 confirmButton?.addEventListener("click", activateSelectedPlan);
+checkoutForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  activateSelectedPlan();
+});
+cardNumberInput?.addEventListener("input", () => {
+  cardNumberInput.value = formatCardNumber(cardNumberInput.value);
+});
 modal?.addEventListener("click", (event) => {
   if (event.target === modal) closeCheckoutModal();
 });

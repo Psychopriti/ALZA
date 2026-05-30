@@ -28,8 +28,55 @@
     <div class="mock-modal" data-checkout-modal hidden>
       <div class="mock-modal-card" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
         <p class="eyebrow">Activar acceso</p>
-        <h2 id="checkout-title">Confirmar activación</h2>
+        <h2 id="checkout-title">Datos de pago</h2>
         <p data-checkout-summary>Vas a activar este plan.</p>
+        <form class="checkout-card-form" data-checkout-form>
+          <label>
+            Nombre en la tarjeta
+            <input name="card_name" type="text" autocomplete="cc-name" placeholder="Nombre del usuario" data-card-name />
+          </label>
+          <label>
+            Numero de tarjeta
+            <input
+              name="card_number"
+              type="text"
+              inputmode="numeric"
+              autocomplete="cc-number"
+              placeholder="1234 5678 9101 1234"
+              value="1234 5678 9101 1234"
+              maxlength="19"
+              data-card-number
+            />
+          </label>
+          <div class="checkout-card-row">
+            <label>
+              Vencimiento
+              <input
+                name="card_expiry"
+                type="text"
+                inputmode="numeric"
+                autocomplete="cc-exp"
+                placeholder="67/69"
+                value="67/69"
+                maxlength="5"
+                required
+              />
+            </label>
+            <label>
+              CCV
+              <input
+                name="card_cvv"
+                type="text"
+                inputmode="numeric"
+                autocomplete="cc-csc"
+                placeholder="067"
+                value="067"
+                maxlength="4"
+                required
+              />
+            </label>
+          </div>
+        </form>
         <div class="modal-actions">
           <button type="button" class="ghost-button" data-cancel-checkout>Cancelar</button>
           <button type="button" class="primary-button" data-confirm-checkout>Confirmar y activar</button>

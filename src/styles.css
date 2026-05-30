@@ -2062,6 +2062,48 @@ textarea:focus {
   padding: 1.4rem;
 }
 
+.checkout-card-form {
+  display: grid;
+  gap: 0.9rem;
+  border: 1px solid rgba(34, 32, 29, 0.08);
+  border-radius: 8px;
+  padding: 1rem;
+  background:
+    linear-gradient(150deg, rgba(255, 243, 215, 0.86), rgba(255, 255, 255, 0.95)),
+    var(--white);
+}
+
+.checkout-card-form label {
+  display: grid;
+  gap: 0.42rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 850;
+}
+
+.checkout-card-form input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 0.85rem;
+  background: #fffdf8;
+  color: var(--ink);
+  font-weight: 850;
+  outline: none;
+}
+
+.checkout-card-form input:focus {
+  border-color: #d99043;
+  box-shadow: 0 0 0 3px rgba(253, 180, 103, 0.2);
+}
+
+.checkout-card-row {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 0.75rem;
+}
+
 .modal-actions {
   display: flex;
   flex-wrap: wrap;
@@ -2960,6 +3002,10 @@ body {
   .plan-grid.single-plan,
   .focused-plans,
   .subscription-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-card-row {
     grid-template-columns: 1fr;
   }
 }
