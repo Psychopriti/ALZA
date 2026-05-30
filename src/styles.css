@@ -247,13 +247,6 @@ h3 {
   opacity: 0.94;
 }
 
-.hero-gif-panel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-}
-
 .animated-mark {
   min-height: 0;
   isolation: isolate;
