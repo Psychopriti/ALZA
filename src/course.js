@@ -7,6 +7,7 @@ const titleNodes = document.querySelectorAll("[data-course-title]");
 const modules = document.querySelector("[data-course-modules]");
 const progress = document.querySelector("[data-course-progress]");
 const video = document.querySelector("[data-lesson-video]");
+const videoFrame = document.querySelector("[data-lesson-video-frame]");
 const videoPlaceholder = document.querySelector("[data-video-placeholder]");
 const youtubePlayer = document.querySelector("[data-youtube-player]");
 const lessonContent = document.querySelector("[data-lesson-content]");
@@ -220,6 +221,7 @@ const hideVideoSurfaces = () => {
     video.removeAttribute("src");
     video.hidden = true;
   }
+  if (videoFrame) videoFrame.hidden = true;
   if (videoPlaceholder) videoPlaceholder.hidden = true;
   if (youtubePlayer) youtubePlayer.hidden = true;
 };
@@ -232,6 +234,7 @@ const renderVideo = async (lesson) => {
   if (isImageMedia(resolvedVideo) && youtubePlayer) {
     video.removeAttribute("src");
     video.hidden = true;
+    if (videoFrame) videoFrame.hidden = true;
     videoPlaceholder.hidden = true;
     youtubePlayer.hidden = false;
     youtubePlayer.innerHTML = `<img class="lesson-media-image" src="${escapeHtml(resolvedVideo)}" alt="${escapeHtml(
@@ -243,6 +246,7 @@ const renderVideo = async (lesson) => {
   if (youtubeId && youtubePlayer) {
     video.removeAttribute("src");
     video.hidden = true;
+    if (videoFrame) videoFrame.hidden = true;
     videoPlaceholder.hidden = true;
     youtubePlayer.hidden = false;
     youtubePlayer.innerHTML = `
@@ -265,12 +269,14 @@ const renderVideo = async (lesson) => {
     if (youtubePlayer) youtubePlayer.hidden = true;
     video.src = resolvedVideo;
     video.hidden = false;
+    if (videoFrame) videoFrame.hidden = false;
     videoPlaceholder.hidden = true;
     return;
   }
 
   video.removeAttribute("src");
   video.hidden = true;
+  if (videoFrame) videoFrame.hidden = true;
   if (youtubePlayer) youtubePlayer.hidden = true;
   videoPlaceholder.hidden = false;
 };
