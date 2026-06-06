@@ -1,68 +1,155 @@
 # ALZA
 
-Frontend inicial de ALZA, una plataforma educativa inclusiva para personas con
-discapacidad auditiva, personas oyentes y empresas.
+ALZA es una plataforma educativa inclusiva enfocada en accesibilidad, aprendizaje digital y gestion de cursos para personas con discapacidad auditiva, personas oyentes, empresas y administradores.
 
-## Estructura
+La aplicacion esta construida como una experiencia web estatica con integracion a Supabase para autenticacion, perfiles, cursos, progreso y flujos administrativos.
 
-- `index.html`: home publica, selector de usuario y demo de plataforma.
-- `src/styles.css`: sistema visual basado en la paleta de ALZA.
-- `src/app.js`: comportamiento ligero del selector de usuario.
-- `public/assets`: logos y referencias visuales.
-- `supabase/schema.sql`: tablas iniciales para perfiles, cursos, lecciones e inscripciones.
+## Demo en produccion
 
-## Ejecutar
+La version desplegada esta disponible en:
+
+[https://alza-web.vercel.app/](https://alza-web.vercel.app/)
+
+## Que incluye
+
+- Home publica con presentacion de ALZA y seleccion de tipo de usuario.
+- Flujo de autenticacion y registro por rol.
+- Portal de usuario con cursos, progreso y contenido educativo.
+- Vista de curso con lecciones y materiales.
+- Panel de super user/admin para gestion de contenido y usuarios.
+- Integracion con Supabase para Auth, perfiles, cursos, lecciones, inscripciones y progreso.
+- Build estatico listo para despliegue en Vercel.
+
+## Stack
+
+- HTML, CSS y JavaScript vanilla.
+- Node.js para servidor local y scripts de build.
+- Supabase para backend, autenticacion y base de datos.
+- Vercel para hosting de produccion.
+
+## Estructura del proyecto
+
+```text
+.
+|-- index.html              # Home publica
+|-- auth.html               # Entrada por tipo de usuario
+|-- login.html              # Inicio de sesion
+|-- register.html           # Registro
+|-- platform.html           # Portal principal del usuario
+|-- course.html             # Vista de curso
+|-- admin.html              # Panel administrativo
+|-- src/
+|   |-- app.js              # Interacciones de la home
+|   |-- platform.js         # Logica del portal
+|   |-- course.js           # Logica de cursos
+|   |-- admin.js            # Logica administrativa
+|   |-- supabase-client.js  # Cliente de Supabase
+|   |-- config.js           # Credenciales publicas de Supabase
+|   `-- styles.css          # Sistema visual
+|-- public/assets/          # Logos, imagenes y recursos visuales
+|-- supabase/               # Schema y migraciones SQL
+|-- scripts/                # Build y validacion estatica
+|-- server.js               # Servidor local portable
+`-- vercel.json             # Configuracion de despliegue en Vercel
+```
+
+## Requisitos
+
+- Node.js 18 o superior.
+- npm.
+- Un proyecto de Supabase, solo si quieres probar autenticacion y datos reales.
+
+## Launch local
+
+Clona el repositorio e instala dependencias:
+
+```bash
+npm install
+```
+
+Levanta el servidor local:
 
 ```bash
 npm run dev
 ```
 
-Luego abre `http://localhost:5173`.
+Abre la aplicacion en:
 
-Si PowerShell bloquea `npm.ps1`, usa:
+[http://localhost:5173](http://localhost:5173)
+
+Si estas en PowerShell y aparece una restriccion con `npm.ps1`, ejecuta:
 
 ```powershell
 npm.cmd run dev
 ```
 
-## Supabase
+Tambien puedes usar el servidor portable directamente:
 
-Corre el SQL cuando ya tengas creado el proyecto en Supabase y quieras probar
-registro/inicio de sesión real. Antes de eso, la UI funciona como maqueta local.
+```bash
+npm run dev:portable
+```
 
-1. Crea el proyecto en Supabase.
-2. Abre el SQL Editor de Supabase.
-3. Ejecuta `supabase/schema.sql` una sola vez en ese proyecto.
-4. Copia tu Project URL y anon key en `src/config.js`.
-5. En Authentication, para pruebas rápidas, puedes desactivar temporalmente la
-   confirmación de email.
-6. Prueba `Crear cuenta` e `Iniciar sesión` desde `auth.html`.
+## Configuracion de Supabase
 
-El formulario de acceso usa Supabase Auth con email y contraseña, y sincroniza
-el perfil seleccionado en la tabla `profiles`. El SQL incluye un trigger para
-crear el perfil automáticamente cuando se registra un usuario.
+La interfaz puede abrirse localmente como maqueta, pero los flujos reales de registro, inicio de sesion, perfiles, cursos y administracion dependen de Supabase.
 
-## Arquitectura
+1. Crea un proyecto en Supabase.
+2. Abre el SQL Editor.
+3. Ejecuta `supabase/schema.sql`.
+4. Si necesitas las funcionalidades agregadas por etapas, ejecuta tambien las migraciones en `supabase/` siguiendo su numeracion.
+5. Copia `src/config.example.js` como `src/config.js`.
+6. Reemplaza los valores con tu Project URL y anon/public key:
 
-- Home pública: `index.html`.
-- Pre-login por portal: `auth.html`.
-- Login por portal: `login.html?role=...`.
-- Registro: `register.html` o `register.html?role=...`.
-- Plataforma de usuario: `platform.html`.
-- Vista de curso: `course.html?course=...`.
-- Super user/admin: `admin.html`.
+```js
+window.ALZA_SUPABASE_URL = "https://tu-proyecto.supabase.co";
+window.ALZA_SUPABASE_ANON_KEY = "tu-anon-key";
+```
 
-Backend planeado en Supabase:
+Para pruebas rapidas, puedes desactivar temporalmente la confirmacion de email desde la configuracion de Authentication en Supabase.
 
-- `auth.users`: autenticación.
-- `profiles`: rol, nombre, empresa y etiqueta `nombre-empresa`.
-- `plans` y `subscriptions`: planes y compras mock.
-- `courses` y `lessons`: contenido editable por super user.
-- `enrollments` y `lesson_progress`: progreso tipo dashboard.
+## Usuarios y rutas principales
 
-Para crear un super user:
+- Home: `index.html`
+- Seleccion de portal: `auth.html`
+- Login por rol: `login.html?role=...`
+- Registro por rol: `register.html?role=...`
+- Plataforma: `platform.html`
+- Curso: `course.html?course=...`
+- Administracion: `admin.html`
+
+## Crear un super user
 
 1. Crea una cuenta normal desde la app.
-2. Cambia el correo en `supabase/promote-super-user.sql`.
-3. Ejecuta ese SQL en Supabase.
-4. Al iniciar sesión, ese usuario será enviado a `admin.html`.
+2. Abre `supabase/promote-super-user.sql`.
+3. Cambia el correo por el usuario que quieres promover.
+4. Ejecuta el SQL en Supabase.
+5. Inicia sesion nuevamente; el usuario sera redirigido al panel `admin.html`.
+
+## Build y validacion
+
+Generar build estatico:
+
+```bash
+npm run build
+```
+
+Validar recursos y texto del build:
+
+```bash
+npm run validate:static
+```
+
+El build se genera en `dist/`, que es el directorio configurado como salida para Vercel.
+
+## Despliegue
+
+El proyecto incluye `vercel.json` con:
+
+- `npm run build` como comando de build.
+- `dist` como directorio de salida.
+- Rewrite de `/` hacia `index.html`.
+- Cache-Control especial para archivos en `/src`.
+
+Produccion actual:
+
+[https://alza-web.vercel.app/](https://alza-web.vercel.app/)
