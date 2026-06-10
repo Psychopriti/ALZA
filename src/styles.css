@@ -2117,30 +2117,34 @@ textarea:focus {
 
 .course-player {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+  grid-template-columns: minmax(0, 820px) minmax(250px, 300px);
   gap: 1rem;
   align-items: start;
+  justify-content: center;
 }
 
 .player-main {
   min-width: 0;
   overflow: hidden;
-  padding: 1rem;
+  padding: clamp(0.75rem, 1.4vw, 1rem);
 }
 
 .large-video {
   width: 100%;
+  max-width: 760px;
   min-height: 0;
   aspect-ratio: 16 / 9;
   max-height: 460px;
+  justify-self: center;
 }
 
 .lesson-video-frame {
   width: 100%;
-  max-width: 100%;
+  max-width: 760px;
   aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
+  justify-self: center;
   overflow: hidden;
   border-radius: 8px;
   background: var(--ink);
@@ -2156,8 +2160,11 @@ textarea:focus {
 }
 
 .youtube-player {
+  width: 100%;
+  max-width: 760px;
   display: grid;
   gap: 0.75rem;
+  justify-self: center;
 }
 
 .youtube-frame {
@@ -2346,7 +2353,7 @@ textarea:focus {
 
 .player-main {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .lesson-list button div {
@@ -2364,13 +2371,16 @@ textarea:focus {
 }
 
 .lesson-content {
+  width: 100%;
+  max-width: 760px;
   display: grid;
   gap: 0.6rem;
+  justify-self: center;
 }
 
 .lesson-content h2,
 .exam-player h2 {
-  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  font-size: clamp(1.45rem, 2.4vw, 2.35rem);
 }
 
 .lesson-content p:not(.eyebrow),
@@ -2398,8 +2408,10 @@ textarea:focus {
 .lesson-media-image {
   display: block;
   width: 100%;
+  max-width: 760px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  justify-self: center;
   border-radius: 8px;
   background: var(--cream);
 }
